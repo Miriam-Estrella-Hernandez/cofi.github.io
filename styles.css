@@ -1,0 +1,247 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 400px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.login-form-container {
+    width: 90%; /* Hace que ocupe el 100% del ancho del contenedor padre */
+    max-width: 360px; /* Limita el ancho máximo */
+    padding: 20px;
+    border: 10px solid #ffffff; /* Borde de 10px dentro del contenedor */
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.login-form h2 {
+    color: #0056b3;
+}
+
+.login-form label {
+    display: block;
+    margin-top: 10px;
+    color: #333;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.login-form button {
+    margin-top: 15px;
+    padding: 10px;
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.login-form button:hover {
+    background-color: #0056b3;
+}
+
+
+/* Estilos para el contenido de bienvenida */
+h1 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #0056b3;
+    margin-top: 20px;
+}
+
+.content section h3 {
+    margin-top: 15px;
+    color: #333;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 5px 0;
+}
+
+ul li a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Botón de cerrar sesión */
+.logout-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.logout-btn:hover {
+    background-color: #0056b3;
+}
+/* Estilos básicos */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Animación de bienvenida */
+        #welcome-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            animation: fadeOut 3s forwards;
+            z-index: 10;
+        }
+
+        .robot {
+            width: 1000px;
+            animation: bounce 1s infinite alternate;
+        }
+
+        /* Efecto de fade-in para la página */
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeOut {
+            to { opacity: 0; visibility: hidden; }
+        }
+
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-20px); }
+        }
+
+        /* Estilos para la navegación */
+        nav {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 15px;
+        }
+
+        /* Estilos para las secciones y transiciones de pestañas */
+        .tab-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .tab-content.active {
+            display: block;
+            opacity: 1;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        /* Estilos para el chat */
+        #chat .chat-container {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        #chat #chat-box {
+            max-height: 200px;
+            overflow-y: scroll;
+            border: 1px solid #ccc;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        
+.password-container {
+    position: relative; /* Necesario para que el botón absoluto se posicione dentro del contenedor */
+    width: 100%; /* Ajusta según sea necesario */
+}
+
+.password-container input {
+    width: 100%; /* Asegura que el input llene todo el contenedor */
+    padding-right: 40px; /* Espacio para el botón en el lado derecho */
+}
+
+.password-container .toggle-password {
+    position: absolute; 
+    right: 0; /* Lo coloca en el borde derecho */
+    top: 50%; /* Centra verticalmente */
+    transform: translateY(-50%); /* Ajuste para el centrado exacto */
+    height: auto; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    background: none; 
+    border: none; 
+    cursor: pointer; 
+    padding: 0 10px; /* Ajusta el espacio alrededor del botón */
+}

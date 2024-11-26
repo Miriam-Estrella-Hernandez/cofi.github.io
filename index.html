@@ -1,0 +1,85 @@
+<?php  
+session_start();
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunidad Educativa - Alumnos</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        // Mostrar/Ocultar contraseña
+        function togglePasswordVisibility() {
+            const passwordInput = document.getElementById('password');
+            const toggleButton = document.getElementById('togglePassword');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleButton.textContent = '🙈'; // Cambia el ícono al mostrar texto
+            } else {
+                passwordInput.type = 'password';
+                toggleButton.textContent = '👁️'; // Cambia el ícono al ocultar
+            }
+        }
+
+        // Preguntar si guardar contraseña
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.querySelector('.login-form');
+            form.addEventListener('submit', function (e) {
+                const savePassword = confirm("¿Deseas que tu navegador guarde tu contraseña?");
+                if (!savePassword) {
+                    document.getElementById('password').setAttribute('autocomplete', 'off');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+    <?php if (!isset($_SESSION['usuario'])): ?>
+        <!-- Contenedor para el formulario de inicio de sesión -->
+        <div class="login-form-container">
+            <form action="login.php" method="POST" class="login-form">
+                <h2>Iniciar Sesión</h2>
+                
+                <label for="correo">Correo:</label>
+                <input type="email" id="correo" name="correo" autocomplete="off" required>
+                
+                <label for="password">Contraseña:</label>
+                <div style="position: relative;">
+                    <input type="password" id="password" name="password" autocomplete="off" required>
+                    <button type="button" id="togglePassword" onclick="togglePasswordVisibility()" 
+                            style="position: absolute; right: -175px; top: -7px; background: none; border: none; cursor: pointer;">
+                        👁️
+                    </button>
+                </div>
+                
+                <button type="submit">Ingresar</button>
+            </form>
+        </div>
+
+        <!-- Botón de Registro -->
+        <div class="register-link">
+            <p>¿No tienes cuenta?</p>
+            <a href="registro.php" class="register-btn">Registrarse</a>
+        </div>
+
+    <?php else: ?>
+        <!-- Contenido de bienvenida para usuarios autenticados -->
+        <h1>Bienvenido, <?php echo htmlspecialchars($_SESSION['usuario']); ?>!</h1>
+        <p>Tu rol en la comunidad educativa es: <strong><?php echo htmlspecialchars($_SESSION['rol']); ?></strong></p>
+
+        <h2>Información y Recursos</h2>
+        <p>Aquí encontrarás recursos importantes y actualizaciones para la comunidad educativa.</p>
+        
+        <div class="content">
+            <section>
+                <h3>Noticias</h3>
+                <p>Últimas noticias y anuncios relevantes para la comunidad educativa.</p>
+            </section>
+        </div>
+    <?php endif; ?>
+    </div>
+</body>
+</html>
